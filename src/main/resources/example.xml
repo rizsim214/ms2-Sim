@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <default-action-ref name="About" />
+
+        <action name="SigninV2" class="v2project.example.actions.SigninV2">
+            <result name="input">/WEB-INF/example/users/Signin.jsp</result>
+            <result name="success">/WEB-INF/example/pages/Profile.jsp</result>
+            <result name="error">/WEB-INF/example/users/Signin.jsp</result>
+        </action>
+        <action name="UserList" class="v2project.example.actions.UserList" method="execute">
+            <result name="success">/WEB-INF/example/users/Users_list.jsp</result>
+        </action>
+
+        <action name="Signup" class="v2project.example.actions.Signup" method="execute">
+            <result name="input">/WEB-INF/example/users/Signup.jsp</result>
+            <result name="success">/WEB-INF/example/users/Signin.jsp</result>
+            <result name="error">/WEB-INF/example/users/About.jsp</result>
+        </action>
+
+        <action name="Signin" class="v2project.example.actions.Signin">
+            <result>/WEB-INF/example/users/Signin.jsp</result>
+            <result name="validated">/WEB-INF/example/pages/Profile.jsp</result>
+        </action>
+
+        <action name="About" class="v2project.example.actions.About">
+            <result>/WEB-INF/example/pages/About.jsp</result>
+        </action>
+
+        <action name="Services" class="v2project.example.actions.Services">
+            <result>/WEB-INF/example/pages/Services.jsp</result>
+        </action>
+
+        <action name="Contact" class="v2project.example.actions.Contact">
+            <result>/WEB-INF/example/pages/Contact.jsp</result>
+        </action>
+
+        <action name="*" class="v2project.example.ExampleSupport">
+            <result>/WEB-INF/example/{1}.jsp</result>
+        </action>
+
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>
