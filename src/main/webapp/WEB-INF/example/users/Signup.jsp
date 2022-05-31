@@ -45,6 +45,9 @@
        .btn-submit:hover{
         background-color: rgba(0, 0, 255, 1);
        }
+       .errorMessage{
+           color: red;
+       }
 </style>
 <s:include value="../partials/header.jsp" />
 <div class="container">

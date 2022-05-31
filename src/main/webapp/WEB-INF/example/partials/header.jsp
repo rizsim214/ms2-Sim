@@ -84,7 +84,7 @@
                     <s:a href="%{Contact}" class="links">Contact Us</s:a> 
             </li>
             <li class="nav-list">
-                <s:url var="Signin" action="example/Signin" />
+                <s:url var="Signin" action="example/SigninV2" />
                     <s:a href="%{Signin}" class="links">Sign In</s:a> 
             </li>
             <li class="nav-list">

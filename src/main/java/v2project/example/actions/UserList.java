@@ -13,6 +13,25 @@ import v2project.example.objects.Client;
 public class UserList extends ExampleSupport {
 
     ArrayList<Client> clients = new ArrayList<Client>();
+    public ArrayList<String> listOfNames = new ArrayList<String>();
+    public String nameInput;
+    public Client searchResult;
+
+    public Client getSearchResult() {
+        return searchResult;
+    }
+
+    public void setSearchResult(Client searchResult) {
+        this.searchResult = searchResult;
+    }
+
+    public String getNameInput() {
+        return nameInput;
+    }
+
+    public void setNameInput(String nameInput) {
+        this.nameInput = nameInput;
+    }
 
     public ArrayList<Client> getClients() {
         return clients;
@@ -22,6 +41,7 @@ public class UserList extends ExampleSupport {
         this.clients = clients;
     }
     
+
     public String execute() throws Exception{
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -47,8 +67,13 @@ public class UserList extends ExampleSupport {
                     client.setUserRole(rs.getString(7));
                     client.setUserStatus(rs.getString(8));
                     clients.add(client);
+                    listOfNames.add(client.getFirstName());
                 }
-                
+                for(int i=0; i< clients.size(); i++){
+                    if(clients.get(i).getFirstName().equals(nameInput)){
+                        setSearchResult(clients.get(i));
+                    }
+                }
             } 
         } catch (Exception e) {
             // Generate Exception Message
@@ -58,6 +83,11 @@ public class UserList extends ExampleSupport {
             if(connection != null) try { connection.close();} catch(SQLException ignore) {} 
         }
 
+        return SUCCESS;
+    }
+
+    public String displayUsers() throws Exception {
+        
         return SUCCESS;
     }
 }

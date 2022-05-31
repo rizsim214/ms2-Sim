@@ -14,6 +14,9 @@
     .texts h3{
         color: red;
     }
+    .errorMessage{
+           color: red;
+       }
 </style>
 <body>
     <s:include value="../partials/header.jsp" />

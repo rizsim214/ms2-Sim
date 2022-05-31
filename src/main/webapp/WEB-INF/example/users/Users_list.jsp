@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %> <%@ taglib prefix="s" uri="/struts-tags" %>
-
+pageEncoding="UTF-8" %> 
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <html>
 <head>
     <title>St.Benedict's Clinic</title>
+    <sx:head />
 </head>
 
 <style>
     .records{
         display: flex;
-        width: 80%;
-        justify-content: space-around;
         align-items: center;
-        margin: auto;
-        padding: 10px 5px;
+        justify-content: center;
+        max-width: 100vw;
     }
     h3{
-        font-weight: 500;
-        font-size: 2rem;
         text-align: center;
     }
-    .records p{
-        font-size: 20px;
-        justify-content: space-between;
-        text-transform: lowercase;
+    .records tr{
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .search{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 <body>
     <s:include value="../partials/header.jsp" />
     <main>
+        <s:form action="displayUser" class="search">
+            <sx:autocompleter
+                label="Search Name"
+                list="listOfNames"
+                name="nameInput"
+                
+            /> 
+            <s:submit />
+        </s:form>
         <h3>All User Records</h3>
         <s:iterator value="clients">
-            <fieldset class="records">
-                <p><s:property value="email" /></p>
-                <p><s:property value="firstName" /></p>
-                <p><s:property value="lastName" /></p>
-                <p><s:property value="contactInfo" /></p>
-                <p><s:property value="userRole" /></p>
-                <p><s:property value="userStatus" /></p>
-            </fieldset>
+            <table class="records">
+                <tr>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Contact Info</th>
+                    <th>User Type</th>
+                    <th>User Status</th>
+                </tr>
+                <tr>
+                    <td><s:property value="email" /></td>
+                    <td><s:property value="firstName" /></td>
+                    <td><s:property value="lastName" /></td>
+                    <td><s:property value="contactInfo" /></td>
+                    <td><s:property value="userRole" /></td>
+                    <td><s:property value="userStatus" /></td>
+                </tr>
+            </table>
+            
         </s:iterator>
     </main>
    

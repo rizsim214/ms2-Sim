@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+          "-//Apache Struts//XWork Validator 1.0.2//EN"
+          "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="clientBean.email">
+        <field-validator type="requiredstring">
+          <message>Email must not be empty*</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Must be an Email Address</message>
+        </field-validator>
+      </field>
+      
+      <field name="clientBean.firstName">
+          <field-validator type="requiredstring">
+              <message>Firstname is Required...*</message>
+          </field-validator>
+      </field>
+     
+    <field name="clientBean.lastName">
+        <field-validator type="requiredstring">
+            <message>Lastname is Required...*</message>
+        </field-validator>
+    </field>
+    <field name="clientBean.contactInfo">
+        <field-validator type="requiredstring">
+            <message>Contact Info is Required...*</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex"><![CDATA[([0-9]+)]]></param>
+            <message>Contact Info should all be numbers..*</message>
+        </field-validator>
+    </field>
+    <field name="clientBean.password">
+        <field-validator type="requiredstring">
+            <message>Password must not be empty*</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">8</param>
+            <param name="maxLength">20</param>
+            <message>Password cannot be lower than ${minLength} or greater than ${maxLength}</message>
+        </field-validator>
+    </field>
+
+</validators>

@@ -12,15 +12,22 @@
         <default-action-ref name="About" />
 
         <action name="SigninV2" class="v2project.example.actions.SigninV2">
+            <interceptor-ref name="defaultStack"/>
             <result name="input">/WEB-INF/example/users/Signin.jsp</result>
             <result name="success">/WEB-INF/example/pages/Profile.jsp</result>
             <result name="error">/WEB-INF/example/users/Signin.jsp</result>
         </action>
+        
         <action name="UserList" class="v2project.example.actions.UserList" method="execute">
             <result name="success">/WEB-INF/example/users/Users_list.jsp</result>
         </action>
 
+        <action name="displayUser" class="v2project.example.actions.UserList" method="execute">
+            <result name="success">/WEB-INF/example/users/DisplayInfo.jsp</result>
+        </action>
+
         <action name="Signup" class="v2project.example.actions.Signup" method="execute">
+            <interceptor-ref name="defaultStack"/>
             <result name="input">/WEB-INF/example/users/Signup.jsp</result>
             <result name="success">/WEB-INF/example/users/Signin.jsp</result>
             <result name="error">/WEB-INF/example/users/About.jsp</result>

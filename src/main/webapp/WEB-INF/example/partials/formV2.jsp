@@ -50,7 +50,7 @@
     <s:form action="example/SigninV2" class="form">
         <h3>Sign in</h3>
         <s:textfield name="accountBean.email" placeholder="Email" class="form-control" />
-        <s:password name="accountBean.password" class="form-control" placeholder="Password" />
+        <s:password name="accountBean.password"  class="form-control" placeholder="Password" />
         <s:submit value="Submit" class="btn-submit" />
     </s:form>
    

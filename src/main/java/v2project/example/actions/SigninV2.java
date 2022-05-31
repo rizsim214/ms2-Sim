@@ -11,33 +11,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import v2project.example.objects.Client;
 
 public class SigninV2 extends ActionSupport{
+
     private String error = "Random";
     private Client accountBean;
     private Client activeAccount;
 
-    public Client getAccountBean() {
-        return accountBean;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public void setAccountBean(Client accountBean) {
-        this.accountBean = accountBean;
-    }   
-    
-    public Client getActiveAccount() {
-        return activeAccount;
-    }
-
-    public void setActiveAccount(Client activeAccount) {
-        this.activeAccount = activeAccount;
-    }
+ 
 
     public String execute() throws Exception{
         
@@ -104,5 +83,28 @@ public class SigninV2 extends ActionSupport{
             if(connection != null) try { connection.close();} catch(SQLException ignore) {} 
         }
         
+    }
+       public Client getAccountBean() {
+        return accountBean;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public void setAccountBean(Client accountBean) {
+        this.accountBean = accountBean;
+    }   
+    
+    public Client getActiveAccount() {
+        return activeAccount;
+    }
+
+    public void setActiveAccount(Client activeAccount) {
+        this.activeAccount = activeAccount;
     }
 }

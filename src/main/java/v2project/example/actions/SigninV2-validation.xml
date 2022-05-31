@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+          "-//Apache Struts//XWork Validator 1.0.2//EN"
+          "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="accountBean.email">
+        <field-validator type="requiredstring">
+          <message>Email must not be empty*</message>
+        </field-validator>
+      </field>
+      
+      <field name="accountBean.password">
+        <field-validator type="requiredstring">
+          <message>Password must not be empty*</message>
+        </field-validator>
+        <field-validator type="stringlength">
+          <param name="minLength">8</param>
+          <param name="maxLength">20</param>
+          <message>Password cannot be lower than ${minLength} or greater than ${maxLength}</message>
+        </field-validator>
+      </field>
+</validators>
